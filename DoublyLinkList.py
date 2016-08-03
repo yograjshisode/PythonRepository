@@ -3,8 +3,7 @@ class Node:
         print "Node Created"
         self.data = data
         self.next = None
-
-
+        self.prev=None
 
 
 class createlist:
@@ -16,6 +15,7 @@ class createlist:
     def add_node(self,data):
         temp=Node(data)
         self.head.next=temp
+        temp.prev=self.head
         self.head=temp
         print "node added"
 
@@ -27,6 +27,14 @@ class createlist:
         else:
             print tmp.data
 
+    def reverse_list_traversal(self):
+        tmp = self.head
+        while (tmp.prev != None):
+            print tmp.data
+            tmp = tmp.prev
+        else:
+            print tmp.data
+
 
 
 
@@ -34,7 +42,7 @@ c=createlist(12)
 c.add_node(10)
 c.add_node(8)
 c.add_node(7)
-c.list_traversal()
+c.reverse_list_traversal()
 
 
 
